@@ -12,6 +12,10 @@ also be found in the help/metadata associated with each dataset.
 
 ## Installation
 
+A large number of data files in this package are hosted via [Git Large File
+Storage (LFS)](https://git-lfs.github.com/). You may need to install LFS in
+order for some files to download properly via git.
+
 To install or explore this R package:
 
   1. Use `devtools` to install the package. This will allow you to
