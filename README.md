@@ -2,7 +2,7 @@
 
 CSLSdata is an R package containing key field measurements collected by the
 Wisconsin Department of Natural Resources as part of the Central Sands Lakes
-Study (CSLS), processed for use in analysis. See `inst/CSLSdata.pdf` for a
+Study (CSLS), processed for use in analysis. See `inst/CSLSdata_1.0.pdf` for a
 detailed description of each dataset.
 
 To regenerate cleaned data from the scripts used to process the raw data, run
