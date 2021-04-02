@@ -1,0 +1,17 @@
+lake,variable,shallow,deep
+Plainfield,upland,-999,-1
+Plainfield,inland_beach,-1.6,1.6
+Plainfield,emergent,-1,7
+Plainfield,floating,3,8
+Plainfield,submergent,1.6,999
+Long,upland,-999,-1
+Long,inland_beach,-1.6,1.6
+Long,emergent,-1,3
+Long,floating,3,8
+Long,submergent,1.6,999
+Pleasant,upland,-999,-1
+Pleasant,inland_beach,-1.6,1.6
+Pleasant,emergent,-1,3
+Pleasant,floating,3,8
+Pleasant,submergent_weed,1.6,15
+Pleasant,submergent_algae,15,999
