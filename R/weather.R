@@ -1,0 +1,53 @@
+#' CSLS hourly weather data
+#'
+#' Hourly weather data from the Hancock Agricultural Research Station website
+#' (\url{https://enviroweather.msu.edu/weather.php?stn=hck}) (station id: hck).
+#' The Hancock Agricultural Research Station is located in Hancock, WI
+#' (location: 44.1188, -89.533, elevation: 241m), approximately 8 miles from
+#' Plainfield Lake, 8.5 miles from Long Lake, and 14.5 miles from Pleasant Lake.
+#'
+#' To download raw data, go to the Hancock Station website and click on "Weather
+#' Station at Hancock" or "More weather for this station" to be routed to a page
+#' with options for "Custom Reports (Data-on-Demand)". Select Data Type "Hourly
+#' Data", then check Air Temperature, Precipitation, Relative Humidity, Total
+#' Solar Flux, and Wind Speed. Select starting date and end date, display units
+#' (metric), and output (csv), then "Generate Report". Note that the earliest
+#' starting date allowed (as of January and September 2019) is February 15,
+#' 2018.
+#'
+#' Raw data is processed in with the function "import_weather.R" in the
+#' "data-raw" subdirectory of this project. This function removes extraneous
+#' lines at the start and end of the raw data files, converts the class of data,
+#' and linearly interpolates any missing values.
+#'
+#' Raw csv data is processed in the \code{data-raw/} subdirectory of this
+#' project with the function \code{import_weather.R} which is run by
+#' \code{runall_cslsdata.R}.
+#'
+#' \code{import_weather.R} reads in hourly weather from the Hancock, WI weather
+#' station. Required weather fields include air temperature (deg C), relative
+#' humidity (%), precipitation (mm), solar radiation (MJ/m^2/hr), and wind speed
+#' (m/s). This funcition cuts lines known to contain uneeded metadata, updates
+#' the format of values, and fills in NA values via linear interpolation.
+#'
+#' @examples
+#' # Load weather data (two different options):
+#' weather <- CSLSdata::weather
+#' data(weather)
+#'
+#' @docType data
+#'
+#' @usage data(weather)
+#'
+#' @format A data frame with hourly records for:
+#' \describe{
+#' \item{date}{date and time of weather observation}
+#' \item{atmp}{air temperature (deg C)}
+#' \item{P}{precipitation (mm)}
+#' \item{RH}{relative humidity (percent)}
+#' \item{Rs}{incoming solar radiation (MJ/m^2)}
+#' \item{wind}{wind speed (m/s)}
+#' }
+#'
+#' @source \url{https://enviroweather.msu.edu/weather.php?stn=hck}
+"weather"

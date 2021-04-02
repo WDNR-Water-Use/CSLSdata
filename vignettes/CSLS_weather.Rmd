@@ -1,0 +1,138 @@
+---
+title: "CSLS_weather"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{CSLS_weather}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Weather
+
+Quick way of visualizing wet/dry years over long time and short time in the
+Central Sands. Uses weather data from Hancock, WI, so this is best for
+visualization purposes - it's not exact match for the CSLS MODFLOW model. Colors
+represent annual precipitation minus potential evapotranspiration as calculated
+using the Hamon method. Blue is wetter years, red is drier years. See actual
+data for exact numbers - again, this is meant to be a quick, intuitive about how
+wet years intermix with dry years.
+
+<br>
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(CSLSevap)
+library(NISTunits)
+library(lubridate)
+library(zoo)
+library(ggplot2)
+library(extrafont)
+
+# May need to change this line based on your working directory. Needs to be
+# relative to vignetted dir when building vignettes, but from root dir when
+# checking and building package.
+# hancock      <- read.csv("../data-raw/hancock_ppt_19030101_20210305.csv") 
+hancock      <- read.csv("hancock_ppt_19030101_20210305.csv") 
+hancock      <- hancock %>%
+                mutate(date = as_datetime(.data$DATE),
+                       phi = NISTdegTOradian(.data$LATITUDE),
+                       pcpn = NISTinchTOmeter(.data$PRCP)*1000,
+                       tmin = NISTdegFtOdegC(.data$TMIN),
+                       tmax = NISTdegFtOdegC(.data$TMAX)) %>%
+                dplyr::select(.data$phi, .data$date, .data$pcpn, .data$tmin, .data$tmax)
+loc          <- list(phi = hancock$phi)
+dates        <- data.frame(date = seq(min(hancock$date), max(hancock$date), "1 day"))
+hancock      <- left_join(dates, hancock, by = "date") %>%
+                dplyr::select(.data$date, .data$pcpn, .data$tmin, .data$tmax)
+hancock.zoo  <- read.zoo(hancock)
+hancock.zoo  <- na.approx(hancock.zoo)
+hancock$tmin <- as.numeric(hancock.zoo$tmin)
+hancock$tmax <- as.numeric(hancock.zoo$tmax)
+hancock$pcpn[is.na(hancock$pcpn)] <- 0
+  
+
+weather <- list(datetimes = hancock$date,
+                atmp = list(min = hancock$tmin,
+                            max = hancock$tmax))
+
+evap <- evaporation(method = "Hamon", loc, weather)
+hancock$pet <- evap
+
+
+annual_water <- hancock %>%
+                mutate(pcpn_pet = .data$pcpn - .data$pet) %>%
+                group_by(year = year(.data$date)) %>%
+                summarise(pcpn = sum(.data$pcpn),
+                          pet = sum(.data$pet),
+                          pcpn_pet = sum(.data$pcpn_pet),
+                          .groups = "drop") %>%
+                mutate(y = 0)
+
+```
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=6.5}
+
+plot_color_strip <- function(df, 
+                             year_start = NULL,
+                             year_end = NULL, 
+                             text_size = 10,
+                             legend_pos = "left") {
+  
+  if (!is.null(year_start)) {
+    df <- df %>% filter(.data$year >= year_start)
+  }
+  if (!is.null(year_end)) {
+    df <- df %>% filter(.data$year <= year_end)
+  }
+  
+  plot_obj <- ggplot(df) +
+              geom_tile(aes(x = .data$year,
+                            y = .data$y,
+                            fill = .data$pcpn_pet),
+                        color = NA) +
+              scale_fill_distiller(name = "",
+                                   palette = "RdBu",
+                                   direction = 1) +
+                                   # limits = c(-1,1)*max(abs(df$pcpn_pet)))+
+              scale_y_continuous(expand = c(0,0)) +
+              scale_x_continuous(expand = expansion(add = c(1,1))) +
+              labs(x = "") +
+              theme_classic() +
+              theme(axis.text.y = element_blank(),
+                    axis.title.y = element_blank(),
+                    axis.line.y = element_blank(),
+                    axis.ticks.y = element_blank(),
+                    text = element_text(family = "Segoe UI Semilight",
+                                        size = text_size),
+                    legend.position = legend_pos,
+                    legend.text = element_blank())
+  return(plot_obj)
+  
+}
+
+
+```
+
+
+### 1938 to 2020 Timeseries
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig.height=2, fig.width=7.5}
+p1 <- plot_color_strip(annual_water, 1938, 2020, text_size = 16,
+                       legend_pos = "top")
+p1
+
+ggsave("color_strip_1938.png", p1, device = "png", 
+       width = 7.5, height = 2, units = "in")
+
+```
+
+
+### 1981 to 2020 Timeseries
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig.height=1.6, fig.width=4}
+rejigger_years <- annual_water %>% mutate(year = .data$year - 1981+1)
+p2 <- plot_color_strip(rejigger_years, 1, 38, text_size = 16)
+p2
+ggsave("color_strip_1981.png", p2, device = "png", 
+       width = 4, height = 1.6, units = "in")
+```

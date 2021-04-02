@@ -1,0 +1,44 @@
+#' CSLS daily lake levels
+#'
+#' Daily lake level observations for the CSLS lakes. Lake gages are maintained
+#' by the United States Geological Survey. Raw data are retrieved from DNR Water
+#' Use section ArcGIS feature services for the Central Sands. Water quantity
+#' information is summarized at a daily time step for these measurements. The
+#' feature layer of interest is
+#' \url{https://uadnrmaps.wi.gov/arcgis/rest/services/DG_HiCap/DG_CSLS_QUANT_MON_WTM_EXT/FeatureServer/2}.
+#'
+#' Raw csv data is processed in the \code{data-raw/} subdirectory of this
+#' project with the functions \code{import_water_levels.R} and
+#' \code{subset_lake_levels.R} which are run by \code{runall_cslsdata.R}.
+#'
+#' \code{import_water_levels.R} downloads the current feature layer from DNR
+#' feature services with water quantity measurements in the Central Sands
+#' (summarized at a daily time step). Feature layer of interest is DG_HiCap >
+#' DG_CSLS_QUANT_MON_WTM_EXT > Layer 2 (W13101.WU_CSLS_QUANT_DATA). The only
+#' cleaning performed is subsetting to desired parameters and adjusting datetime
+#' formats.
+#'
+#' \code{subset_lake_levels.R} subsets larger water level data frame by USGS_id
+#' to retrieve only CSLS lake level records.
+#'
+#' @examples
+#' lake_levels <- CSLSdata::lake_levels
+#'
+#' @seealso \code{\link{gw_levels}}
+#'
+#' @docType data
+#'
+#' @usage data(lake_levels)
+#'
+#' @format A data frame with the following columns:
+#' \describe{
+#'   \item{lake}{associated lake (Pleasant, Long, Plainfield)}
+#'   \item{site_id}{unique CSLS site id}
+#'   \item{date}{date of measurement}
+#'   \item{level_m}{lake elevation, meters above mean sea level}
+#'   \item{area_m2}{lake area at this elevation, m^2}
+#'   \item{vol_m3}{lake volume at this elevation, m^3}
+#' }
+#'
+#' @source \url{https://uadnrmaps.wi.gov/arcgis/rest/services/DG_HiCap/DG_CSLS_QUANT_MON_WTM_EXT/FeatureServer/2}
+"lake_levels"
