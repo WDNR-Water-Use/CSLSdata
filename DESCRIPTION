@@ -1,0 +1,38 @@
+Package: CSLSdata
+Type: Package
+Title: WI DNR Central Sands Lakes Study Field Data
+Version: 1.0
+Author: Carolyn Voter <cvoter@wisc.edu>
+Maintainer: Carolyn Voter <cvoter@wisc.edu>
+Description: The package 'CSLSdata' includes field data used in analyses for 
+    the Wisconsin Department of Natural Resources's Central Sands Lakes Study 
+    (CSLS). Unprocessed, raw data and scripts are included in 'data-raw', with 
+    extensive notes about processing included in the documentation for each
+    dataset.
+Depends:
+    R (>= 2.10)
+Suggests:
+    lubridate,
+    dplyr,
+    jsonlite,
+    ggsn,
+    ggplot2,
+    extrafont,
+    NISTunits,
+    CSLSevap,
+    bit64,
+    stringr,
+    zoo,
+    raster,
+    reshape2,
+    sf,
+    usethis,
+    testthat,
+    knitr,
+    rmarkdown
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
