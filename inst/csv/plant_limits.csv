@@ -1,0 +1,17 @@
+"lake","variable","shallow","deep"
+"Plainfield","upland",-304.4952,-0.3048
+"Plainfield","inland_beach",-0.48768,0.48768
+"Plainfield","emergent",-0.3048,2.1336
+"Plainfield","floating",0.9144,2.4384
+"Plainfield","submergent",0.48768,304.4952
+"Long","upland",-304.4952,-0.3048
+"Long","inland_beach",-0.48768,0.48768
+"Long","emergent",-0.3048,0.9144
+"Long","floating",0.9144,2.4384
+"Long","submergent",0.48768,304.4952
+"Pleasant","upland",-304.4952,-0.3048
+"Pleasant","inland_beach",-0.48768,0.48768
+"Pleasant","emergent",-0.3048,0.9144
+"Pleasant","floating",0.9144,2.4384
+"Pleasant","submergent_weed",0.48768,4.572
+"Pleasant","submergent_algae",4.572,304.4952

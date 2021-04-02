@@ -1,0 +1,44 @@
+"lake","obs_type","site_id","SWIMS_station_name","SWIMS_station_id","USGS_id","WBIC","site_type","site_type_detailed","lat_deg","long_deg","elev_m","bouy_bottom_elev_m"
+"Precip","P","NADP","",NA,NA,NA,"precipitation","precipitation",NA,NA,NA,NA
+"Precip","P","HCK","HANCOCK AG STA - PRECIP COLLECTORS",NA,NA,NA,"precipitation","precipitation",NA,NA,NA,NA
+"Long","LK","LONG","",NA,5401065,1000800,"lake","lake",44.20666,-89.45473,335,333.003
+"Long","GW","LL-01","LL01 MONITORING WELL",NA,10052299,NA,"upgradient","consistently_upgradient",44.20982,-89.45635,NA,NA
+"Long","GW","LL-01B","LL01B MONITORING WELL",NA,10052446,NA,"deep","inconsistent",NA,NA,NA,NA
+"Long","GW","LL-02","LL02 MONITORING WELL",10051668,10051668,NA,"downgradient","typically_downgradient",44.20786,-89.46114,NA,NA
+"Long","GW","LL-02B","LL02B MONITORING WELL",NA,10052448,NA,"deep","inconsistent",NA,NA,NA,NA
+"Long","GW","LL-03","LL03 MONITORING WELL",10051669,10051669,NA,"downgradient","typically_downgradient",44.20662,-89.46092,NA,NA
+"Long","GW","LL-04","",NA,10052297,NA,"downgradient","typically_downgradient",44.20398,-89.45143,NA,NA
+"Long","GW","LL-05","LL05B MONITORING WELL",NA,10052298,NA,"upgradient","inconsistent",44.20537,-89.44787,NA,NA
+"Long","GW","LL-05C","LL05C MONITORING WELL",NA,10052449,NA,"deep","inconsistent",NA,NA,NA,NA
+"Long","GW","LL-06","LL06 MONITORING WELL",10051670,10051670,NA,"upgradient","consistently_upgradient",44.20648,-89.451,NA,NA
+"Long","GW","LL-07","LL07 MONITORING WELL",10051671,10051671,NA,"upgradient","consistently_upgradient",44.20842,-89.454,NA,NA
+"Long","GW","LL-08","",NA,10052300,NA,"upgradient","consistently_upgradient",44.20903,-89.45995,NA,NA
+"Long","GW","LL-09","LL09 MONITORING WELL",10052301,10052301,NA,"downgradient","typically_downgradient",44.20542,-89.45638,NA,NA
+"Long","GW","LL-09B","LL09B MONITORING WELL",NA,10052450,NA,"deep","consistently_downgradient",NA,NA,NA,NA
+"Long","GW","LL-10","",NA,10052302,NA,"downgradient","consistently_downgradient",44.20665,-89.45762,NA,NA
+"Plainfield","LK","PLAIN","",NA,5401067,1012500,"lake","lake",44.20713,-89.47346,335,332.7783
+"Plainfield","GW","PFL-02","PFL02 MONITORING WELL",10051663,10051663,NA,"upgradient","consistently_upgradient",44.20898,-89.47471,NA,NA
+"Plainfield","GW","PFL-03","PFL03 MONITORING WELL",10051664,10051664,NA,"downgradient","typically_downgradient",44.20477,-89.46944,NA,NA
+"Plainfield","GW","PFL-04","PFL04 MONITORING WELL",10051666,10051666,NA,"upgradient","consistently_upgradient",44.2088,-89.47771,NA,NA
+"Plainfield","GW","PFL-05","PFL05 MONITORING WELL",10052284,10052284,NA,"upgradient","consistently_upgradient",44.20752,-89.46892,NA,NA
+"Plainfield","GW","PFL-07","PFL07 MONITORING WELL",10051667,10051667,NA,"upgradient","inconsistent",44.20559,-89.46725,NA,NA
+"Plainfield","GW","PFL-09","PFL09 MONITORING WELL",10052286,10052286,NA,"downgradient","typically_downgradient",44.20492,-89.47161,NA,NA
+"Plainfield","GW","PFL-11","",NA,10052287,NA,"downgradient","typically_downgradient",44.20541,-89.4746,NA,NA
+"Plainfield","GW","PFL-13","",NA,10052288,NA,"upgradient","inconsistent",44.20763,-89.47721,NA,NA
+"Plainfield","GW","PFL-14","",NA,10052289,NA,"downgradient","consistently_downgradient",44.20647,-89.47658,NA,NA
+"Plainfield","GW","PFL-15","",NA,10052441,NA,"upgradient","consistently_upgradient",NA,NA,NA,NA
+"Plainfield","GW","PFL-100","PFL100 DEEP WELL",NA,10053202,NA,"deep","deep",NA,NA,NA,NA
+"Plainfield","GW","PFL-101","PFL101 DEEP WELL",NA,10053203,NA,"deep","deep",NA,NA,NA,NA
+"Pleasant","LK","PLEAS","",NA,435857089325301,106900,"lake","lake",43.98528,-89.55251,299,291.6562519
+"Pleasant","GW","PSNT-01","PSNT01 MONITORING WELL",10051672,10051672,NA,"upgradient","consistently_upgradient",43.98432,-89.55846,NA,NA
+"Pleasant","GW","PSNT-03","PSNT03 MONITORING WELL",10051673,10051673,NA,"downgradient","consistently_downgradient",43.98229,-89.54691,NA,NA
+"Pleasant","GW","PSNT-05","PSNT05 MONITORING WELL",10052290,10052290,NA,"downgradient","consistently_downgradient",43.98669,-89.5454,NA,NA
+"Pleasant","GW","PSNT-06","PSNT06 MONITORING WELL",10051674,10051674,NA,"downgradient","consistently_downgradient",43.98104,-89.54893,NA,NA
+"Pleasant","GW","PSNT-07","",NA,10052291,NA,"downgradient","consistently_downgradient",43.98203,-89.55161,NA,NA
+"Pleasant","GW","PSNT-08","",NA,10052292,NA,"downgradient","consistently_downgradient",43.9808,-89.55427,NA,NA
+"Pleasant","GW","PSNT-09","",NA,10052293,NA,"downgradient","consistently_downgradient",43.98082,-89.55748,NA,NA
+"Pleasant","GW","PSNT-10","",NA,10052294,NA,"downgradient","consistently_downgradient",43.985,-89.54476,NA,NA
+"Pleasant","GW","PSNT-11","PSNT11 MONITORING WELL",10051675,10051675,NA,"invalid","invalid",43.98856,-89.54885,NA,NA
+"Pleasant","GW","PSNT-14","",NA,10052295,NA,"upgradient","consistently_upgradient",43.98807,-89.55239,NA,NA
+"Pleasant","GW","PSNT-15","",NA,10052296,NA,"upgradient","consistently_upgradient",43.98207,-89.55941,NA,NA
+"Pleasant","GW","PSNT-16","PSNT16 MONITORING WELL",10051676,10051676,NA,"upgradient","consistently_upgradient",43.98752,-89.55526,NA,NA

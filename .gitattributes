@@ -1,1 +1,2 @@
 *.Rda filter=lfs diff=lfs merge=lfs -text
+MODFLOW.csv filter=lfs diff=lfs merge=lfs -text
