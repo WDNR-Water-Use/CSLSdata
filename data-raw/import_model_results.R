@@ -25,7 +25,7 @@
 #'  \item{GWout_m3_d}{groundwater outflow rate into lake (m^3/d)}
 #'  \item{dV_m3_d}{change in lake volume as a flow rate (m^3/d)}
 
-import_model_results <- function(scenarios = c("cal", "cur_irr", "no_irr", "wells_off"),
+import_model_results <- function(scenarios = c("cal", "cur_irr", "no_irr", "fut_irr", "wells_off"),
                                  lakes = c("Pleasant", "Long", "Plainfield")) {
 
   library(dplyr)
@@ -77,16 +77,16 @@ import_model_results <- function(scenarios = c("cal", "cur_irr", "no_irr", "well
                    select(.data$lake, .data$date, .data$scenario, .data$sim,
                           .data$flux, .data$value) %>%
                    dcast(lake+date+scenario+sim~flux, value.var = "value")
-    } else if (scenario %in% c("irr_baseline", "no_irr_baseline")) {
+    } else if (scenario %in% c("cal")) {
       lk_fluxes <- lk_fluxes %>%
-                   mutate(scenario = str_replace(scenario, "_baseline", ""),
+                   mutate(scenario = scenario,
                           sim = 0) %>%
                    select(.data$lake, .data$date, .data$scenario, .data$sim,
                           .data$gw_in, .data$gw_out, .data$gw_net)
     } else {
       lk_fluxes <- lk_fluxes %>%
                    mutate(scenario = scenario,
-                          sim = 0) %>%
+                          sim = 1) %>%
                    select(.data$lake, .data$date, .data$scenario, .data$sim,
                           .data$gw_in, .data$gw_out, .data$gw_net)
     }
@@ -128,14 +128,14 @@ import_model_results <- function(scenarios = c("cal", "cur_irr", "no_irr", "well
                 select(.data$lake, .data$date, .data$scenario, .data$sim,
                        .data$flux, .data$value) %>%
                 dcast(lake+date+scenario+sim~flux, value.var = "value")
-    } else if (scenario %in% c("irr_baseline", "no_irr_baseline")) {
+    } else if (scenario %in% c("cal")) {
       lk_pkg <- lk_pkg %>%
                 mutate(scenario = str_replace(scenario, "_baseline", ""),
                        sim = 0)
     } else {
       lk_pkg <- lk_pkg %>%
                 mutate(scenario = scenario,
-                       sim = 0)
+                       sim = 1)
 
     }
 
