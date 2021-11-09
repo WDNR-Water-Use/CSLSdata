@@ -25,7 +25,8 @@
 #'  \item{GWout_m3_d}{groundwater outflow rate into lake (m^3/d)}
 #'  \item{dV_m3_d}{change in lake volume as a flow rate (m^3/d)}
 
-import_model_results <- function(scenarios = c("cal", "cur_irr", "no_irr", "fut_irr", "wells_off"),
+import_model_results <- function(scenarios = c("cal", "cur_irr", "no_irr",
+                                               "fut_irr", "wells_off"),
                                  lakes = c("Pleasant", "Long", "Plainfield")) {
 
   library(dplyr)
