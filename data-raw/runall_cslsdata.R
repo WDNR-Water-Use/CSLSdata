@@ -48,7 +48,7 @@ usethis::use_data(weather, dictionary, lake_raster, plant_limits, bathymetry,
                   lake_levels, gw_levels, water_chem, MODFLOW, overwrite = TRUE,
                   compress = "xz")
 
-# Save csv versions to inst/csv directory -------------------------------------------------------
+# Save csv versions to inst/csv directory --------------------------------------
 csv_dir <- "inst/csv"
 
 write.csv(weather,
